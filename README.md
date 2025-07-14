@@ -74,6 +74,3 @@ curl -X POST \
 
 ## Metrics
 Prometheus metrics are exposed at `/metrics` (enabled by [prometheus-fastapi-instrumentator](https://github.com/trallard/prometheus-fastapi-instrumentator)).
-
-## License
-MIT (or specify your license) 
