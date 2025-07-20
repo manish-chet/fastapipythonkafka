@@ -10,7 +10,7 @@ from pydantic import BaseModel
 app = FastAPI()
 
 # Kafka configuration
-bootstrap_servers = ["hostname1.abc.com:6667", "hostname2.abc.com:6667", "hostname3.abc.com:6667"]
+bootstrap_servers = ["kafka:6667"]
 username = "kafkaapi"
 password = "kafkapi#123"
 
@@ -21,13 +21,13 @@ producer = KafkaProducer(
     batch_size=16384,
     linger_ms=10,
     api_version=(0, 10, 1),
-    security_protocol="SASL_SSL",
-    sasl_mechanism="SCRAM-SHA-512",
-    sasl_plain_username=username,
-    sasl_plain_password=password,
-    ssl_cafile="/app/truststore.pem",
+    # security_protocol="SASL_SSL",
+    # sasl_mechanism="SCRAM-SHA-512",
+    # sasl_plain_username=username,
+    # sasl_plain_password=password,
+    # ssl_cafile="/app/truststore.pem",
     value_serializer=lambda v: v.encode("utf-8"),
-    ssl_check_hostname=False
+    # ssl_check_hostname=False
 )
 
 # Logging configuration
